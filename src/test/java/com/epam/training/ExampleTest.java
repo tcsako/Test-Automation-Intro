@@ -57,14 +57,16 @@ public class ExampleTest {
      */
     @Test
     public void testExample() {
-        driver.get("http://www.szeged.hu");
+        driver.get("http://www.google.hu");
+ //       driver.manage().timeouts().pageLoadTimeout(10 , TimeUnit.SECONDS);
 
         WebElement element = driver.findElement(By.name("q"));
-        element.sendKeys("EPAM");
+        element.sendKeys(searchText);
 
         element.submit();
-
-        Assert.assertTrue(driver.getTitle().contains("EPAM"));
+        
+       new WebDriverWait(driver , 10).until(ExpectedConditions.titleContains(searchText));
+        Assert.assertTrue(driver.getTitle().contains(searchText));
     }
 
     /**
@@ -72,7 +74,16 @@ public class ExampleTest {
      */
     @After
     public void tearDown() {
-        driver.quit();
+//      driver.quit();
+    }
+    
+    @Parameters
+    public static Object[][] searchParams() {
+    	return new Object[][] {
+    		{"EPAM" ,1 , true},
+//    		{"Mozi" , 3 , false},
+//    		{"Medve"}
+    	}; 
     }
 
 }
