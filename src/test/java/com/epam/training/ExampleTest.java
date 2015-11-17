@@ -1,24 +1,42 @@
 package com.epam.training;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Example test(s) to demonstrate Selenium WebDriver.
  *
  * @author Zsolt_Horvath1
  */
+@RunWith(Parameterized.class)
 public class ExampleTest {
 
     /** The {@link WebDriver} instance that will be used during the test. */
     private WebDriver driver;
 
+    @Parameter(0)
+    public String searchText;
+    @Parameter(1)
+    public double number;
+    @Parameter(2)
+    public boolean bool;
+    
+    
+    
     /**
      * Browser initialization before the test.
      */
