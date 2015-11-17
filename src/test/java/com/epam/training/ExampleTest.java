@@ -36,17 +36,26 @@ public class ExampleTest {
      * 2. Type 'EPAM' into the search input field
      * 3. Submit the form
      * 4. Check whether the title of the browser contains the word 'EPAM'
+     * @throws InterruptedException 
      */
     @Test
-    public void testExample() {
-        driver.get("http://www.szeged.hu");
+    public void testExample() throws InterruptedException {
+        driver.get("http://www.e-bay.com");
 
-        WebElement element = driver.findElement(By.name("q"));
-        element.sendKeys("EPAM");
+        WebElement element = driver.findElement(By.id("gh-ac"));
+        element.sendKeys("Hans Zimmer");
+       driver.findElement(By.id("gh-btn")).click();
+       WebElement inception = driver.findElement(By.cssSelector("a[title*='INCEPTION']"));
+       inception.click();
+         
+       WebElement buy = driver.findElement(By.id("binBtn_btn"));
+       buy.click();
+        
+        Thread.sleep(5000);
 
-        element.submit();
+        
 
-        Assert.assertTrue(driver.getTitle().contains("EPAM"));
+      
     }
 
     /**
