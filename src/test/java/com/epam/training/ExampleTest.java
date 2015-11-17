@@ -1,19 +1,28 @@
 package com.epam.training;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Example test(s) to demonstrate Selenium WebDriver.
  *
  * @author Zsolt_Horvath1
  */
+@RunWith(Parameterized.class)
 public class ExampleTest {
 
     /** The {@link WebDriver} instance that will be used during the test. */
@@ -22,6 +31,14 @@ public class ExampleTest {
     /**
      * Browser initialization before the test.
      */
+    @Parameter(0)
+    public String searchText;
+    @Parameter(1)
+    
+    
+   
+    
+    
     @Before
     public void setUp() {
         driver = new FirefoxDriver();
@@ -39,14 +56,15 @@ public class ExampleTest {
      */
     @Test
     public void testExample() {
-        driver.get("http://www.szeged.hu");
-
-        WebElement element = driver.findElement(By.name("q"));
+        driver.get("http://www.google.hu");
+        //driver.manage().timeouts().pageLoadTimeout(0, TimeUnit.SECONDS);
+        WebElement element = driver.findElement(By.name("qa"));
         element.sendKeys("EPAM");
 
         element.submit();
-
-        Assert.assertTrue(driver.getTitle().contains("EPAM"));
+        WebDriverWait wait=new WebDriverWait(driver, 10);
+       wait.until(ExpectedConditions.titleContains(searchText));
+        Assert.assertTrue(driver.getTitle().contains(searchText));
     }
 
     /**
@@ -54,7 +72,17 @@ public class ExampleTest {
      */
     @After
     public void tearDown() {
-        driver.quit();
+        //driver.quit();
+    	driver.close();
     }
+    
+    @Parameters
+    public static Object[][] searchParams(){
+    	return (new Object [][] {
+    		{"EPAM", 1, true}});
+    	}
+    	
+    }
+    
 
-}
+
