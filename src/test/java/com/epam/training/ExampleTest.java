@@ -1,7 +1,5 @@
 package com.epam.training;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -34,7 +32,9 @@ public class ExampleTest {
     @Parameter(0)
     public String searchText;
     @Parameter(1)
-    
+    public double number;
+    @Parameter(2)
+    public boolean bool;
     
    
     
@@ -78,8 +78,11 @@ public class ExampleTest {
     
     @Parameters
     public static Object[][] searchParams(){
-    	return (new Object [][] {
-    		{"EPAM", 1, true}});
+    	return new Object [][] {
+    		{"EPAM", 1, true},
+    		{"Mozi", 2, false},
+    		{"medvedisznóember", -3.5 , true}    	   	
+    	};
     	}
     	
     }
