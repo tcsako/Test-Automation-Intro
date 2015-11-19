@@ -10,25 +10,28 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class LessonTest {
 
 	private static WebDriver driver;
-	
 	private HomePage homePage;
 	private SearchPage searchPage;
+	
+
 	@Before
 	public void setUp() {
 
-		driver = new FirefoxDriver();		
+		driver = new FirefoxDriver();
+		
 		//Add URL
-		driver.get("https://www.ebay.com");		
+		driver.get("https://www.ebay.com");
+		
 		driver.manage().window().maximize();
 		
 		homePage = new HomePage(driver);
 		searchPage = new SearchPage(driver);
-		
+
 	}
 	
 	@After
 	public void tearDown() {
-		//driver.quit();
+//		driver.quit();
 	}
 	
 	@Test
@@ -37,7 +40,6 @@ public class LessonTest {
 		searchPage = homePage.submitForm();
 		Assert.assertEquals("Search Page was not loaded properly.", searchPage.getPageTitle(), "EPAM | eBay");
 		
-		//searchPage = homePage.clearSearchField();
 	}
 
 }

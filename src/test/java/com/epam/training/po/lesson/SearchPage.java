@@ -11,6 +11,7 @@ public class SearchPage extends BasePage {
 	
 	public String getPageTitle() {
 		return getDriver().getTitle();
+		
 	}
-
+	
 }
