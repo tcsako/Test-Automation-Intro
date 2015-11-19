@@ -14,7 +14,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,13 +27,14 @@ public class ExampleTest {
 
     /** The {@link WebDriver} instance that will be used during the test. */
     private WebDriver driver;
-    
+
     @Parameter(0)
     public String searchText;
     @Parameter(1)
-    public double second;
+    public double number;
     @Parameter(2)
-    public boolean third;
+    public boolean bool;
+    
     
     
     /**
@@ -58,17 +58,14 @@ public class ExampleTest {
     @Test
     public void testExample() {
         driver.get("http://www.google.hu");
-//        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+ //       driver.manage().timeouts().pageLoadTimeout(10 , TimeUnit.SECONDS);
 
         WebElement element = driver.findElement(By.name("q"));
         element.sendKeys(searchText);
 
         element.submit();
         
-        
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.titleContains(searchText));
-
+       new WebDriverWait(driver , 10).until(ExpectedConditions.titleContains(searchText));
         Assert.assertTrue(driver.getTitle().contains(searchText));
     }
 
@@ -77,16 +74,16 @@ public class ExampleTest {
      */
     @After
     public void tearDown() {
-        //driver.quit();
+//      driver.quit();
     }
     
     @Parameters
     public static Object[][] searchParams() {
     	return new Object[][] {
-    		{"EPAM", 1, true},
-//    		{"Mozi", 2.4, false},
-//    		{"Facepalm", -1.74, true},    		
-    	};
+    		{"EPAM" ,1 , true},
+//    		{"Mozi" , 3 , false},
+//    		{"Medve"}
+    	}; 
     }
 
 }

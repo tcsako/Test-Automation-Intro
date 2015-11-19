@@ -1,0 +1,10 @@
+pattern - sema ami alapjan konnyeb kodolni
+login pagen nem fogsz keresni es forditva. szoval megeri.
+webelements --> interaktusba lepnek a methodokkal
+
+
+FindBy annotacio - 
+page factory a page objectet kezeli
+
+Selenium grid - egy kozponti szerver kezeli a szolgat es parhuzamosan futthatnak a tesztek
+Letezik a parhuzamositas, tobbszalon futtatni.
