@@ -79,7 +79,7 @@ Repository for Introduction to test automation training
 
 6. Add/clone a repository (main window)
   - Click on the Clone/New button
-  - Source Path/URL: https://github.com/TrainingGuestLead/Test-Automation-Intro.git
+  - Source Path/URL: https://github.com/tcsako/Test-Automation-Intro.git
   - Choose a Destination Path as well, to where the source will be downloaded
   - Click on the Clone button
 
