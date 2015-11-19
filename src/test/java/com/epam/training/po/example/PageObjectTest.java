@@ -37,9 +37,9 @@ public class PageObjectTest {
 	}
 
 	@After
-	public void tearDown() {
-		driver.quit();
-	}
+//	public void tearDown() {
+//		driver.quit();
+//	}
 
 	@Test
 	public void advancedSearchTest() {

@@ -92,7 +92,7 @@ public class SearchPage extends BasePage {
 	}
 	
 	private void setSortBy(String sortText) {
-		Select selectSortBy = new Select(selectSort);
+		Select selectSortBy = new Select(selectSort); //UI felület manipuláló dolog select választ.
 		selectSortBy.selectByVisibleText(sortText);
 	}
 }

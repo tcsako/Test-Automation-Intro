@@ -10,16 +10,17 @@ import org.openqa.selenium.support.PageFactory;
  * @author Nandor_Rigo
  *
  */
-
+// Minden egyes oldal ebből származik, ez az ős oldal
 public class BasePage {
 
-	private WebDriver driver;
+	private WebDriver driver; //Konstruktor
 
 	public BasePage(WebDriver driver) {
 	        this.driver = driver;
 	        PageFactory.initElements(this.driver, this);
 	    }
 
+	//Elérjük az ős webdriverét
 	public WebDriver getDriver() {
 		return driver;
 	}

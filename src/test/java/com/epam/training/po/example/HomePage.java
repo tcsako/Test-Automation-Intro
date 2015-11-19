@@ -12,9 +12,9 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
 	
-	private final By searchLink = By.id("gh-as-a");
+	private final By searchLink = By.id("gh-as-a"); //A searchbox id
 
-	public HomePage(WebDriver driver) {
+	public HomePage(WebDriver driver) { //Elkérem az őstől a drivert
 		super(driver);
 	}
 	
@@ -23,7 +23,7 @@ public class HomePage extends BasePage {
 	 * @return {@link SearchPage}
 	 */
 	public SearchPage clickOnAdvancedSearchLink() {
-		getDriver().findElement(searchLink).click();
-		return new SearchPage(getDriver());
+		getDriver().findElement(searchLink).click(); //Megklikkeljük a search cuccot
+		return new SearchPage(getDriver()); //Meghívja a Searchpag
 	}
 }
