@@ -22,7 +22,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  *
  * @author Zsolt_Horvath1
  */
-
 @RunWith(Parameterized.class)
 public class ExampleTest {
 
@@ -35,6 +34,9 @@ public class ExampleTest {
     public double number;
     @Parameter(2)
     public boolean bool;
+    
+    
+    
     /**
      * Browser initialization before the test.
      */
@@ -56,16 +58,14 @@ public class ExampleTest {
     @Test
     public void testExample() {
         driver.get("http://www.google.hu");
-        //driver.manage().timeouts().pageLoadTimeout(0, TimeUnit.SECONDS);
+ //       driver.manage().timeouts().pageLoadTimeout(10 , TimeUnit.SECONDS);
 
         WebElement element = driver.findElement(By.name("q"));
         element.sendKeys(searchText);
 
         element.submit();
-
-       new WebDriverWait(driver, 10)
-        		.until(ExpectedConditions.titleContains(searchText));
         
+       new WebDriverWait(driver , 10).until(ExpectedConditions.titleContains(searchText));
         Assert.assertTrue(driver.getTitle().contains(searchText));
     }
 
@@ -74,17 +74,16 @@ public class ExampleTest {
      */
     @After
     public void tearDown() {
-        driver.quit();
+//      driver.quit();
     }
     
     @Parameters
-    public static Object[][] searchParams(){
-     return new Object [][]{
-    	 {"EPAM", 1, true},
-    	 //{"Mozi", 3, false},
-    	 //{"Medvedisznóember", -1.1, true },
-     };
+    public static Object[][] searchParams() {
+    	return new Object[][] {
+    		{"EPAM" ,1 , true},
+//    		{"Mozi" , 3 , false},
+//    		{"Medve"}
+    	}; 
     }
- }
 
-
+}
