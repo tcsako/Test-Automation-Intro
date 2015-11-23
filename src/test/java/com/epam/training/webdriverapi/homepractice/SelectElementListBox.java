@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -25,6 +26,7 @@ public class SelectElementListBox {
 	private WebElement selectElement;
 	@FindBy(id = "qssub")
 	private WebElement submitButton;
+	
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -36,6 +38,8 @@ public class SelectElementListBox {
 
 	@Test
 	public void test() {
+		
+		
 		checkBoxNew.click();
 		checkBoxUsage.click();
 		Select selection = new Select(selectElement);
@@ -43,7 +47,7 @@ public class SelectElementListBox {
 		submitButton.click();
 		System.out.println("Webpage title is: "+driver.getTitle());
 		new WebDriverWait(driver,100).until(ExpectedConditions.titleContains(driver.getTitle()));
-	    Assert.assertTrue(driver.getTitle().contains(driver.getTitle()));
+	    Assert.assertTrue(driver.getTitle().contains("Acura Angebote bei mobile.de"));
 	}
 	@After
 	public void tearDown(){
