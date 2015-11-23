@@ -81,7 +81,7 @@ public class ExampleTest {
     public static Object[][] searchParams() {
     	return new Object[][] {
     		{"EPAM" ,1 , true},
-//    		{"Mozi" , 3 , false},
+    		{"Mozi" , 3 , false},
 //    		{"Medve"}
     	}; 
     }

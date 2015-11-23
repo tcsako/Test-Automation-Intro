@@ -27,10 +27,10 @@ public class LessonTest {
 
 	}
 	
-//	@After
-//	public void tearDown() {
-//		driver.quit();
-//	}
+	@After
+	public void tearDown() {
+		driver.quit();
+	}
 	
 	@Test
 	public void navigationTest() {
